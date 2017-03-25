@@ -9,10 +9,20 @@ in the console, but the alarm will still go off after 6 seconds
 a minute.
 */
 var DELAY = 0.1;
-var quoteURL = "https://s-media-cache-ak0.pinimg.com/736x/af/32/a6/af32a6db6799496edd3e948efb07ed04.jpg";
+var defaultSettings = {
+  dataTypes: "https://s-media-cache-ak0.pinimg.com/736x/af/32/a6/af32a6db6799496edd3e948efb07ed04.jpg"
+};
+var quoteURL = defaultSettings.dataTypes;
 var facebookURLSubstring = "facebook";
 var twitterURLSubstring = "twitter";
 var youtubeSubstring = "youtube"; 
+
+/*
+Generic error logger.
+*/
+function onError(e) {
+  console.error(e);
+}
 
 /*
 On startup, check whether we have stored settings of URL.
@@ -20,7 +30,7 @@ If we don't, then store the default quoteURL.
 */
 function checkStoredSettings(storedSettings) {
   if (!storedSettings.dataTypes) {
-    browser.storage.local.set(quoteURL);
+    browser.storage.local.set(defaultSettings);
   }
 }
 
