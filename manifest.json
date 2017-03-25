@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+  "name": "Stay Focused",
+  "version": "1.0",
+  "description": "Shows you a quote to stay focused when you're spending time on social media or youtube.",
+  "homepage_url": "https://github.com/mdn/webextensions-examples/tree/master/chill-out",
+  "icons": {
+    "48": "icons/focus.png"
+  },
+
+  "permissions": [
+    // "about",
+    "alarms",
+    "tabs",
+    "storage"
+  ],
+
+  "page_action": {
+    "default_icon": "icons/focus.png",
+    "default_title": "Chill out"
+  },
+
+  "options_ui": {
+    "page": "options/options.html"
+  },
+
+  "background": {
+    "scripts": ["background.js"]
+  },
+
+  "applications": {
+  "gecko": {
+    "id": "gautamprajapati06@gmail.com"
+  }
+}
+
+}
