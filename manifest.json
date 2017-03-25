@@ -17,7 +17,7 @@
 
   "page_action": {
     "default_icon": "icons/focus.png",
-    "default_title": "Chill out"
+    "default_title": "Focus"
   },
 
   "options_ui": {
@@ -32,6 +32,6 @@
   "gecko": {
     "id": "gautamprajapati06@gmail.com"
   }
-}
+  }
 
 }

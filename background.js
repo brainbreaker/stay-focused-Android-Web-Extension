@@ -21,7 +21,7 @@ var youtubeSubstring = "youtube";
 Generic error logger.
 */
 function onError(e) {
-  console.error(e);
+  console.error("Error: "+e);
 }
 
 /*
@@ -83,23 +83,20 @@ function restartAlarm(tabId) {
   });
 }
 
+function focusMe(storedSettings) {
+  quoteURL = storedSettings.dataTypes;
+  console.log("quoteURL: "+ quoteURL);
+  browser.tabs.update({url: quoteURL});
+}
 /*
 On alarm, load the quote after fetching the URL from settings.
 */
 browser.alarms.onAlarm.addListener((alarm) => {
   var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
   // browser.about.log("You did it!!");
-  gettingActiveTab.then((tabs) => {
-    console.log("Coming");
+  gettingActiveTab.then((tab) => {
     const gettingStoredSettings = browser.storage.local.get();
-    quoteURL = gettingStoredSettings.dataTypes;
-    tabs.update({url: quoteURL});
+    gettingStoredSettings.then(focusMe, onError);
   });
 });
 
-// /*
-// On page action click, navigate the corresponding tab to the cat gifs.
-// */
-// browser.pageAction.onClicked.addListener(function () {
-//   browser.tabs.update({url: quoteURL});
-// });

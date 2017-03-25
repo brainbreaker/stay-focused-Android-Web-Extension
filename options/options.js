@@ -15,7 +15,9 @@ function storeSettings() {
   }
 
   const dataTypes = getTypes();
-  browser.storage.local.set(dataTypes);
+  browser.storage.local.set({
+    dataTypes
+  });
 }
 
 /*
