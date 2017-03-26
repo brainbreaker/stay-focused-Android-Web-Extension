@@ -93,7 +93,8 @@ On alarm, load the quote after fetching the URL from settings.
 */
 browser.alarms.onAlarm.addListener((alarm) => {
   var gettingActiveTab = browser.tabs.query({active: true, currentWindow: true});
-  // browser.about.log("You did it!!");
+  // This is for calling the simple Logger API I made
+  browser.logger.log("Alarm is on!");
   gettingActiveTab.then((tab) => {
     const gettingStoredSettings = browser.storage.local.get();
     gettingStoredSettings.then(focusMe, onError);

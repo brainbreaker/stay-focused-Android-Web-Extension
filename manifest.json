@@ -9,7 +9,7 @@
   },
 
   "permissions": [
-    // "about",
+    "logger",
     "alarms",
     "tabs",
     "storage"
